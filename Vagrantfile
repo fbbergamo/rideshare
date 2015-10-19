@@ -8,7 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
   config.vm.box = "Ubuntu64"
   config.omnibus.chef_version = :latest
-  #config.librarian_chef.enabled = false
+  #config.librarian_chef.enabled = true
+  #config.librarian_chef.cheffile_dir = "chef"
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
     v.gui = false
@@ -16,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.cookbooks_path = ["cookbooks"]
 
     chef.add_recipe "apt"
     chef.add_recipe "nodejs"
@@ -70,7 +71,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }]
       },
       oh_my_zsh: {
-        users: ["vagrant"]
+        users: [{
+          :login => 'vagrant',
+          :theme => 'rachel',
+          :plugins => ['gem', 'git', 'rails3', 'redis-cli', 'ruby'],
+          :home => '/home/vagrant' # optional
+        }]
       }
     }
 

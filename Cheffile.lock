@@ -10,6 +10,12 @@ SITE
     build-essential (2.2.3)
     chef-sugar (3.1.1)
     chef_handler (1.1.6)
+    dmg (2.2.2)
+    git (4.3.4)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      windows (>= 0.0.0)
+      yum-epel (>= 0.0.0)
     homebrew (1.12.0)
       build-essential (>= 2.1.2)
     nodejs (2.4.0)
@@ -38,10 +44,19 @@ GIT
   specs:
     rbenv (0.7.3)
 
+GIT
+  remote: https://github.com/shingara/oh-my-zsh-chef
+  ref: master
+  sha: f223d7618e3413f727dff52b5a2454d9d3086ce2
+  specs:
+    oh_my_zsh (0.0.1)
+      git (>= 0.0.0)
+
 DEPENDENCIES
   apt (>= 0)
   build-essential (>= 0)
   nodejs (>= 0)
+  oh_my_zsh (>= 0)
   postgresql (~> 3.4.20)
   rbenv (>= 0)
   ruby_build (>= 0)

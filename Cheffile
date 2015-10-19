@@ -6,3 +6,4 @@ cookbook 'ruby_build'
 cookbook 'nodejs'
 cookbook 'rbenv', git: 'https://github.com/aminin/chef-rbenv'
 cookbook 'postgresql', '~> 3.4.20'
+cookbook 'oh_my_zsh',  :git => "https://github.com/shingara/oh-my-zsh-chef"
