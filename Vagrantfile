@@ -8,8 +8,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
   config.vm.box = "Ubuntu64"
   config.omnibus.chef_version = :latest
-  #config.librarian_chef.enabled = true
-  #config.librarian_chef.cheffile_dir = "chef"
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
     v.gui = false
@@ -73,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       oh_my_zsh: {
         users: [{
           :login => 'vagrant',
-          :theme => 'rachel',
+          :theme => 'robbyrussell',
           :plugins => ['gem', 'git', 'rails3', 'redis-cli', 'ruby'],
           :home => '/home/vagrant' # optional
         }]
