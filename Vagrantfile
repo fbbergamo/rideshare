@@ -25,7 +25,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "postgresql"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "oh_my_zsh"
+    chef.add_recipe "cmake::default"
+
     chef.json = {
+      cmake: {
+        install_method: "package"
+      },
       postgresql: {
           enable_pgdg_apt: true,
           dir: "/etc/postgresql/9.2/main",
