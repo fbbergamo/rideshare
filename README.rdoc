@@ -1,28 +1,32 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A solucao utiliza a biblioteca Redis-Geo (https://matt.sh/redis-geo) modulo com suporte para geolocation, Foi utilizado uma gem desenvolvida para esse projeto para dar suporte as buscas e insercao no redis (https://github.com/harn/redis-geohash).
 
-Things you may want to cover:
+A solucao adotada foi trabalhar com geohashes, devido a facilitade em realizar buscas por meio de um indices, o problema dessa abordagem é que a area da busca pode sofre algumas variacoes, mas a velocidade é um fator que se leva em conta principalmente em uma API muito solicitada.
 
-* Ruby version
+A localizacao está sendo armazenada em background para melhorar o tempo de resposta para o usuario.
 
-* System dependencies
+O projeto está desenvolvido em ruby, banco de dados postsql e redis.
+Foi utilizado o vagrant com receitas chefs para montagem do ambiente de desenvolvimento.
+A documentacao foi gerada em [link]
 
-* Configuration
+TODO:
+* Remover alguns middlewares de controllers do rails, que nao sao usados na api, para melhorar a velocidade
+*
 
-* Database creation
+Install
 
-* Database initialization
+* vagrant up --provision
+* vagrant ssh
+* cd /vagrant
+* sudo shell_scrips/install_dynamic_redis.sh
+* bundle; rake db:migrate
 
-* How to run the test suite
+Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+* rspec
 
-* Deployment instructions
+Gerar a Documentacao
+* APIEPIE
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Performace

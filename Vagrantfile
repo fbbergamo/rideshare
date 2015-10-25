@@ -83,7 +83,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
 
-    chef.custom_config_path = "Vagrant.chef"
   end
 
 
