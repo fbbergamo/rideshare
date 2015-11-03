@@ -1,0 +1,322 @@
+  <h4><a href='#drivers'>Drivers</a></h4>
+  <ul>
+      <li><a href='#drivers-index'>index</a></li>
+      <li><a href='#drivers-show'>show</a></li>
+      <li><a href='#drivers-create'>create</a></li>
+      <li><a href='#drivers-status'>status</a></li>
+  </ul>
+
+
+
+  <hr/>
+
+  <div>
+    <h2 id="drivers">
+      <a href='#drivers'>Drivers</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="drivers-index">
+      <a href='#drivers'>Drivers</a> / <a href='#drivers-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/drivers
+            <br>
+            <small>Busca motoristas por lat e lng</small>
+          </h4>
+      </div>
+
+      <div>
+        
+          <h4>Examples</h4>
+            <pre class="wiki">GET /api/v1/drivers?sw=-90%2C-180&amp;ne=90%2C180
+200
+[
+  {
+    &quot;DriverId&quot;: &quot;419&quot;,
+    &quot;latitude&quot;: -90,
+    &quot;longitude&quot;: -180,
+    &quot;driverAvailable&quot;: true
+  },
+  {
+    &quot;DriverId&quot;: &quot;420&quot;,
+    &quot;latitude&quot;: -90,
+    &quot;longitude&quot;: -180,
+    &quot;driverAvailable&quot;: true
+  }
+]</pre>
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>sw </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>latitude e longitude separado por virgula ex: -90,-180</p>
+
+    </li>
+    
+    <li>
+      <strong>ne </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>latitude e longitude separado por virgula ex: -90,-180</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="drivers-show">
+      <a href='#drivers'>Drivers</a> / <a href='#drivers-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/drivers/:id
+            <br>
+            <small>Retorna informacoes relativa ao motorista</small>
+          </h4>
+      </div>
+
+      <div>
+        
+          <h4>Examples</h4>
+            <pre class="wiki">GET /api/v1/drivers/415?%7B%7D
+200
+{
+  &quot;id&quot;: 415,
+  &quot;plate&quot;: &quot;MyString&quot;,
+  &quot;latitude&quot;: null,
+  &quot;longitude&quot;: null,
+  &quot;available&quot;: true,
+  &quot;name&quot;: &quot;MyString&quot;
+}</pre>
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a number.</p>
+ ]
+      </small>
+      
+<p>Id do motorista</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="drivers-create">
+      <a href='#drivers'>Drivers</a> / <a href='#drivers-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/drivers
+            <br>
+            <small>Criar motorista</small>
+          </h4>
+      </div>
+
+      <div>
+        
+          <h4>Examples</h4>
+            <pre class="wiki">POST /api/v1/drivers
+{
+  &quot;driver&quot;: {
+    &quot;name&quot;: &quot;felipe&quot;,
+    &quot;plate&quot;: &quot;aaa123&quot;
+  }
+}
+202</pre>
+
+          <h4>Errors</h4>
+            422
+            Dados incorretos
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>driver </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>plate </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="drivers-status">
+      <a href='#drivers'>Drivers</a> / <a href='#drivers-status'>status</a>
+      </h3>
+
+      <div>
+          <h4>
+              PATCH /api/v1/drivers/:id/status
+            <br>
+            <small>Atualiza posicao do motorista</small>
+          </h4>
+      </div>
+
+      <div>
+        
+          <h4>Examples</h4>
+            <pre class="wiki">PATCH /api/v1/drivers/416/status
+{
+  &quot;location&quot;: {
+    &quot;available&quot;: true,
+    &quot;latitude&quot;: -90.0,
+    &quot;longitude&quot;: -180.0
+  }
+}
+202</pre>
+
+          <h4>Errors</h4>
+            422
+            Dados incorretos
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a number.</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>location </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>latitude </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be Float</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>longitude </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be Float</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>available </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be one of: true, false.</p>
+ ]
+      </small>
+      
+<p>Disponibilidade</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+  </div>
