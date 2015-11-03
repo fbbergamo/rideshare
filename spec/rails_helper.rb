@@ -24,11 +24,8 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
   config.include ApiHelper, :type=>:api #apply to all spec for apis folder
-  #config.include Devise::TestHelpers, type: :controller
-  before(:each) do
-      $geohash.redis.flushdb
-  end
-
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run :show_in_doc => true if ENV['APIPIE_RECORD']  #config.include Devise::TestHelpers, type: :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

@@ -1,32 +1,24 @@
 == README
 
-A solucao utiliza a biblioteca Redis-Geo (https://matt.sh/redis-geo) modulo com suporte para geolocation, Foi utilizado uma gem desenvolvida para esse projeto para dar suporte as buscas e insercao no redis (https://github.com/harn/redis-geohash).
-
-A solucao adotada foi trabalhar com geohashes, devido a facilitade em realizar buscas por meio de um indices, o problema dessa abordagem é que a area da busca pode sofre algumas variacoes, mas a velocidade é um fator que se leva em conta principalmente em uma API muito solicitada.
-
-A localizacao está sendo armazenada em background para melhorar o tempo de resposta para o usuario.
-
+A solução adotada foi trabalhar com geohashes, devido a facilidade em realizar buscas por meio de um índice, o problema dessa abordagem é que a área da busca pode sofre algumas variações, mas a velocidade é um fator que se leva em conta principalmente em uma API muito solicitada. Foi utiliza a biblioteca Redis-Geo (https://matt.sh/redis-geo) modulo com suporte para geolocation. Foi utilizado uma gem desenvolvida por mim para esse projeto para dar suporte as buscas e inserção no redis (https://github.com/harn/redis-geohash).
 O projeto está desenvolvido em ruby, banco de dados postsql e redis.
 Foi utilizado o vagrant com receitas chefs para montagem do ambiente de desenvolvimento.
-A documentacao foi gerada em [link]
+A documentação foi gerada utilizando os testes de funcionalidades feitos.
 
 TODO:
-* Remover alguns middlewares de controllers do rails, que nao sao usados na api, para melhorar a velocidade
-*
+* Remover alguns middlewares de controllers do rails, que não são usados na api, para melhorar a velocidade
+*A localização pode ser armazenada no banco de dados em background para melhorar o tempo de resposta para o usuário. Ou trabalhar com uma arquitetura de Pub/Sub com pequenos serviços.
+*Implementar camada de Oauth2 com autenticação
+* Implementar camada de autorização para recursos do sistema
 
 Install
-
 * vagrant up --provision
 * vagrant ssh
 * cd /vagrant
 * sudo shell_scrips/install_dynamic_redis.sh
 * bundle; rake db:migrate
+* rails s -b 0.0.0.0
 
 Tests
-
 * rspec
-
-Gerar a Documentacao
-* APIEPIE
-
 Performace

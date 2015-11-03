@@ -6,7 +6,6 @@ fi
 cd /vagrant
 mkdir -p ~/repos
 cd ~/repos
-# We need YAJL for JSON commands and the Makefile refuses to run without it.
 git clone https://github.com/lloyd/yajl
 cd yajl
 ./configure; make

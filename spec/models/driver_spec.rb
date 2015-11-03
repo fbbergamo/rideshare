@@ -18,7 +18,6 @@ RSpec.describe Driver, type: :model do
   }
 
   it "should update location and set on redis" do
-    $geohash = double("geohash")
     allow($geohash).to receive(:add_point) { true }
     driver.update_location({latitude: -90, longitude: -180, available: true})
     expect(driver.valid?).to be_truthy
@@ -27,7 +26,6 @@ RSpec.describe Driver, type: :model do
   end
 
   it "should set available false and remove location on redis" do
-    $geohash = double("geohash")
     allow($geohash).to receive(:has_point?) { true }
     expect($geohash).to receive(:remove_point).with(driver.id)
     driver.update_location({latitude: -90, longitude: -180, available: false})
@@ -37,7 +35,6 @@ RSpec.describe Driver, type: :model do
   end
 
   it "should set available false and avoid remove location" do
-    $geohash = double("geohash")
     allow($geohash).to receive(:has_point?) { false }
     expect($geohash).to_not receive(:remove_point).with(driver.id)
     driver.update_location({latitude: -90, longitude: -180, available: false})

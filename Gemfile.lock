@@ -48,6 +48,8 @@ GEM
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
+    apipie-rails (0.3.5)
+      json
     arel (6.0.3)
     ast (2.1.0)
     axiom-types (0.1.1)
@@ -207,6 +209,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  apipie-rails
   byebug
   database_cleaner
   dotenv-rails

@@ -31,3 +31,4 @@ group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
+gem 'apipie-rails'

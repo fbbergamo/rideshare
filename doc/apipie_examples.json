@@ -1,0 +1,93 @@
+{
+  "drivers#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/drivers",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "driver": {
+          "name": "felipe",
+          "plate": "aaa123"
+        }
+      },
+      "response_data": null,
+      "code": 202,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "drivers#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/drivers",
+      "versions": [
+        "1.0"
+      ],
+      "query": "sw=-90%2C-180&ne=90%2C180",
+      "request_data": null,
+      "response_data": [
+        {
+          "DriverId": "419",
+          "latitude": -90,
+          "longitude": -180,
+          "driverAvailable": true
+        },
+        {
+          "DriverId": "420",
+          "latitude": -90,
+          "longitude": -180,
+          "driverAvailable": true
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "drivers#show": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/drivers/415",
+      "versions": [
+        "1.0"
+      ],
+      "query": "%7B%7D",
+      "request_data": null,
+      "response_data": {
+        "id": 415,
+        "plate": "MyString",
+        "latitude": null,
+        "longitude": null,
+        "available": true,
+        "name": "MyString"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "drivers#status": [
+    {
+      "verb": "PATCH",
+      "path": "/api/v1/drivers/416/status",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "location": {
+          "available": true,
+          "latitude": -90.0,
+          "longitude": -180.0
+        }
+      },
+      "response_data": null,
+      "code": 202,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}
